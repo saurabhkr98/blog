@@ -8,7 +8,7 @@ module Mapper
           id: object[:id],
           name: object[:name],
           active: object[:active],
-          founding_year: object[:founding_year],
+          founding_year: object[:founding_year]
         )
       end
     end

@@ -10,12 +10,15 @@ class OrganizationService
 
   sig { returns(T::Array[Entity::Organization]) }
   def all
-    repository.all.map { |org| EntityMapper::Organization.to_entity(entity: Entity::Organization, dto: org)}
+    repository.all.map { |org| EntityMapper::Organization.to_entity(entity: Entity::Organization, dto: org) }
   end
 
-
-  sig { params(request: Entity::OrganizationCreateRequest).returns(Entity::Organization)}
+  sig { params(request: Entity::OrganizationCreateRequest).returns(Entity::Organization) }
   def create(request:)
-    EntityMapper::Organization.to_entity(entity: Entity::Organization, dto: repository.create(request: request))
+    EntityMapper::Organization.to_entity(entity: Entity::Organization, dto: repository.create(request:))
+  end
+
+  def get(id:)
+    EntityMapper::Organization.to_entity(entity: Entity::Organization, dto: repository.get(id:))
   end
 end

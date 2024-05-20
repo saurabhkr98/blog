@@ -28,4 +28,6 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  base_error: Something went wrong
+  organization:
+    not_found: Organization not found with id %{id}

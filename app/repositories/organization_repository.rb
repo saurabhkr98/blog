@@ -10,6 +10,16 @@ class OrganizationRepository
 
   sig { params(request: Entity::OrganizationCreateRequest).returns(Dto::Organization) }
   def create(request:)
-    Mapper::Organization.to_dto(dto: Dto::Organization, object: Organization.create(name: request.name, active: request.active, founding_year: request.founding_year))
+    Mapper::Organization.to_dto(dto: Dto::Organization,
+                                object: Organization.create(name: request.name,
+                                                            active: request.active, founding_year: request.founding_year))
+  end
+
+  sig { params(id: Integer).returns(Dto::Organization) }
+  def get(id:)
+    org = Organization.find(id)
+    Mapper::Organization.to_dto(dto: Dto::Organization, object: org)
+  rescue ActiveRecord::RecordNotFound
+    raise OrganizationNotFound.new(message: I18n.t('organization.not_found', id:))
   end
 end

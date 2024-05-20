@@ -9,7 +9,7 @@ module EntityMapper
           id: dto.id,
           name: dto.name,
           active: dto.active,
-          founding_year: dto.founding_year,
+          founding_year: dto.founding_year
         )
       end
     end

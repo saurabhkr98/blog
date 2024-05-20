@@ -10,32 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_12_014741) do
-  create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.string "writer"
-    t.integer "reads"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.1].define(version: 20_240_520_130_522) do
+  create_table 'organizations', force: :cascade do |t|
+    t.string 'name'
+    t.boolean 'active'
+    t.integer 'founding_year'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "blogwes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.integer 'pincode'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
-  create_table "organizations", force: :cascade do |t|
-    t.string "name"
-    t.boolean "active"
-    t.integer "founding_year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
